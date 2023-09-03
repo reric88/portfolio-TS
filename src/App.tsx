@@ -6,6 +6,7 @@ import { Background } from "./components/Background";
 import { About } from "./components/About";
 import { Projects } from "./components/Projects";
 import { Card } from "./components/Card";
+import { Border } from "./components/Border";
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -72,11 +73,17 @@ function App() {
       <button onClick={handleBackForward} className="fb-button forward">
         Go Forward
       </button>
-      <div className="cards">
+      {/* <div className="cards">
       <Card />
       <Card />
       <Card />
-      </div>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      </div> */}
       <Navbar
         navButton={navButton}
         handleNavButton={handleNavButton}
@@ -87,6 +94,7 @@ function App() {
       {currentPage === 'about' ? <About /> : <></>}
       {currentPage === 'projects' ? <Projects /> : <></>}
     </div>
+    <Border />
     </>
   );
 }
