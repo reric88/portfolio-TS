@@ -2,6 +2,8 @@ import React from 'react'
 
 export const Projects = () => {
   return (
-    <div>Projects</div>
+    <div id='projects' className='page'>
+      
+    </div>
   )
 }

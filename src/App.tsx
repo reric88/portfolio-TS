@@ -3,6 +3,9 @@ import "./App.css";
 import { Home } from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import { Background } from "./components/Background";
+import { About } from "./components/About";
+import { Projects } from "./components/Projects";
+import { Card } from "./components/Card";
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -15,6 +18,7 @@ function App() {
   const [pageNumber, setPageNumber] = useState(visitedPages.length);
 
   const handleCurrentPage = (v: string) => {
+    setNavButton({ about: false, home: false, projects: false })
     if (v !== currentPage){
       setCurrentPage(v);
     setVisitedPages((prevVisitedPages) => [...prevVisitedPages, v]);
@@ -61,20 +65,27 @@ function App() {
     <>
     <div id="app">
     <img className='bg-image' src="/images/neuro.png" alt="" />
-      <Background />
+      {/* <Background /> */}
       <button onClick={handleBackForward} className="fb-button back">
         Go Back
       </button>
       <button onClick={handleBackForward} className="fb-button forward">
         Go Forward
       </button>
+      <div className="cards">
+      <Card />
+      <Card />
+      <Card />
+      </div>
       <Navbar
         navButton={navButton}
         handleNavButton={handleNavButton}
         currentPage={currentPage}
         handleCurrentPage={handleCurrentPage}
       />
-      <Home />
+      {/* {currentPage === 'home' ? <Background /> : <></>} */}
+      {currentPage === 'about' ? <About /> : <></>}
+      {currentPage === 'projects' ? <Projects /> : <></>}
     </div>
     </>
   );

@@ -19,7 +19,7 @@ export const NavProjects = (props: Props) => {
             <p>Projects</p>
         </div>
         <div onClick={()=>props.handleCurrentPage('github')} className="select-link">
-            <p>Github</p>
+            <a href="https://github.com/reric88" target='_blank'><p>Github</p></a>
         </div>
     </div>
   )
