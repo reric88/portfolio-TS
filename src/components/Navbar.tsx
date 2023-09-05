@@ -10,6 +10,7 @@ type Props = {
   },
   currentPage: string,
   handleCurrentPage: (v:string)=>void,
+  handleBackForward: (e:React.MouseEvent<HTMLDivElement>)=>void
 
 };
 
@@ -35,6 +36,15 @@ export const Navbar = (props: Props) => {
   return (
     <nav id="navbar-parent">
       <div className="navbar">
+
+        <div
+          onClick={(e)=>props.handleBackForward(e)}
+          className={`nav-backward`}
+        >
+          <i
+            className={`fa-solid fa-backward`}
+          ></i>
+        </div>
         <div
           onClick={handleButtonClick}
           className={`nav-button about ${
@@ -47,6 +57,7 @@ export const Navbar = (props: Props) => {
             }`}
           ></i>
         </div>
+
         <div
           onClick={handleButtonClick}
           className={`nav-button home ${
@@ -69,6 +80,15 @@ export const Navbar = (props: Props) => {
             className={`fa-solid fa-folder ${
               props.navButton.projects ? "nav-button-active-i" : ""
             }`}
+          ></i>
+        </div>
+
+        <div
+          onClick={(e)=>props.handleBackForward(e)}
+          className={`nav-forward`}
+        >
+          <i
+            className={`fa-solid fa-forward`}
           ></i>
         </div>
       </div>

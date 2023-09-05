@@ -41,8 +41,7 @@ export const Card = (props: Props) => {
           </div>
           <div onClick={(e) => flipCard(e)} className="card-back">
             <hr></hr>
-            <p>
-              {props.back}
+            
               {props.id === "gca-card" ? (
                 <>
                   <p>
@@ -72,9 +71,11 @@ export const Card = (props: Props) => {
                   </p>
                 </>
               ) : (
-                ""
+                <p>
+              {props.back}
+              </p>
               )}
-            </p>
+            
             <hr></hr>
             <h3>{props.langs}</h3>
           </div>

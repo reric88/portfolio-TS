@@ -45,52 +45,43 @@ function App() {
     }
   };
 
-  const handleBackForward = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (e.currentTarget.classList.contains("back") && pageNumber > 1) {
-      setCurrentPage(visitedPages[pageNumber - 1]);
-      setPageNumber((prev) => (prev -= 1));
+  const handleBackForward = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.currentTarget.classList.contains("nav-backward") && pageNumber > 1) {
+      setCurrentPage(visitedPages[pageNumber - 2]);
+      setPageNumber((prev) => (prev - 1));
     }
-
-    if (e.currentTarget.classList.contains("forward")) {
+    
+    if (e.currentTarget.classList.contains("nav-forward")) {
       if (pageNumber < visitedPages.length) {
-        setCurrentPage(visitedPages[pageNumber + 1]);
-        setPageNumber((prev) => (prev += 1));
+        setCurrentPage(visitedPages[pageNumber]);
+        setPageNumber((prev) => (prev + 1));
       }
       if (pageNumber >= visitedPages.length) {
         return;
       }
     }
+    // console.log(currentPage, pageNumber)
   };
+
+useEffect(()=>{
+  console.log('PageNumber', pageNumber)
+  console.log('CurrentPage', currentPage)
+},[pageNumber])
 
   return (
     <>
     <div id="app">
+      {/* <Projects /> */}
     <img className='bg-image' src="/images/neuro.png" alt="" />
       {/* <Background /> */}
-      <button onClick={handleBackForward} className="fb-button back">
-        Go Back
-      </button>
-      <button onClick={handleBackForward} className="fb-button forward">
-        Go Forward
-      </button>
-      {/* <div className="cards">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      </div> */}
       <Navbar
         navButton={navButton}
         handleNavButton={handleNavButton}
+        handleBackForward={handleBackForward}
         currentPage={currentPage}
         handleCurrentPage={handleCurrentPage}
       />
-      {/* {currentPage === 'home' ? <Background /> : <></>} */}
+      {currentPage === 'home' ? <Background /> : <></>}
       {currentPage === 'about' ? <About /> : <></>}
       {currentPage === 'projects' ? <Projects /> : <></>}
     </div>
