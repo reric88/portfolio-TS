@@ -15,8 +15,9 @@ type Props = {
 export const NavHome = (props: Props) => {
   return (
     <div id='nav-home' className={`nav-menus ${props.navButton.home ? 'nav-drawer-up' : ''}`}>
-        <div onClick={()=>props.handleCurrentPage('home')} className="select-link">
-            <p>Home</p>
+        <div className="select-link">
+            {/* <p>Home</p> */}
+            <a onClick={()=>props.handleCurrentPage('home')} href="#home">Home</a>
         </div>
     </div>
   )

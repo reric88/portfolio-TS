@@ -15,8 +15,9 @@ type Props = {
 export const NavAbout = (props: Props) => {
   return (
     <div id='nav-about' className={`nav-menus ${props.navButton.about ? 'nav-drawer-up' : ''}`}>
-        <div onClick={()=>props.handleCurrentPage('about')} className="select-link">
-            <p>About</p>
+        <div className="select-link">
+            {/* <p>About</p> */}
+            <a onClick={()=>props.handleCurrentPage('about')} href="#about">About</a>
         </div>
     </div>
   )

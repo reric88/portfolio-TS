@@ -297,7 +297,20 @@ body {
 }
 
 .select-link a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vw;
   text-decoration: none;
+  color: #000;
+  transition: 100ms ease;
+}
+
+.select-link:hover a {
+  transform: scale(1.1);
+  transition: 100ms ease;
 }
 
 .select-link:hover {
@@ -308,8 +321,8 @@ body {
 
 .select-link:hover p {
   /* color: #fff; */
-  transform: scale(1.1);
-  transition: 200ms ease;
+  /* transform: scale(1.1); */
+  /* transition: 200ms ease; */
 }
 
 #home {
